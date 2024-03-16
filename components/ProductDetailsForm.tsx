@@ -3,6 +3,7 @@ import React from "react"
 import { Form, Input, Radio, Space } from "antd"
 import { useForm } from "antd/es/form/Form"
 import { FileInput } from "./FileInput"
+import { CustomButton } from "./CustomButton"
 
 export const ProductDetailsForm = () => {
   const [form] = useForm()
@@ -176,10 +177,74 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <FileInput accept=".jpg, .png, .svg, .jpeg" />
+          <FileInput accept=".jpg, .png, .svg, .jpeg" id="front" />
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
+
+        <Form.Item
+          label="Left Hand Side Product Photo"
+          name="left_side_photo"
+          rules={[
+            {
+              required: true,
+              message: "Please input the Left Hand Side Product Photo!",
+            },
+          ]}
+        >
+          <FileInput accept=".jpg, .png, .svg, .jpeg" id="left" />
+        </Form.Item>
+
+        {/* ----------------------------------------------------------- */}
+        <Form.Item
+          label="Right Hand Side Product Photo"
+          name="right_side_photo"
+          rules={[
+            {
+              required: true,
+              message: "Please input the Right Hand Side Product Photo!",
+            },
+          ]}
+        >
+          <FileInput accept=".jpg, .png, .svg, .jpeg" id="Right" />
+        </Form.Item>
+
+        {/* ----------------------------------------------------------- */}
+        <Form.Item
+          label="Back Side Product Photo"
+          name="back_side_photo"
+          rules={[
+            {
+              required: true,
+              message: "Please input the Back Side Product Photo!",
+            },
+          ]}
+        >
+          <FileInput accept=".jpg, .png, .svg, .jpeg" id="Back" />
+        </Form.Item>
+
+        {/* ----------------------------------------------------------- */}
+        <Form.Item
+          label="Product Video"
+          name="product_video"
+          rules={[
+            {
+              required: true,
+              message: "Please input the Product Video!",
+            },
+          ]}
+        >
+          <FileInput accept=".mp4, .mov" id="product_video" />
+          <p className="mt-4">
+            <i>
+              Note: Upload a Video in .MP4 or .MOV format (up to 20MB max).
+              Share a 360-angle video
+            </i>
+          </p>
+        </Form.Item>
+
+        {/* ----------------------------------------------------------- */}
+        <CustomButton>Next</CustomButton>
       </Form>
     </div>
   )

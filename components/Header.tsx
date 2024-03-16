@@ -4,6 +4,7 @@ import { Logo } from "./Logo"
 import Link from "next/link"
 import { Button, Drawer } from "antd"
 import { CloseCircleOutlined, MenuFoldOutlined } from "@ant-design/icons"
+import { CustomButton } from "./CustomButton"
 
 const paths = [
   { path: "#why-sell-with-us", name: "Why sell with us" },
@@ -35,7 +36,7 @@ export const Header = () => {
           ))}
           <li>
             <Link href="#sell-with-us">
-              <Button>Get Started</Button>
+              <CustomButton>Get Started</CustomButton>
             </Link>
           </li>
         </ul>
@@ -74,7 +75,7 @@ export const Header = () => {
               ))}
               <li>
                 <Link href="#sell-with-us">
-                  <Button>Get Started</Button>
+                  <CustomButton>Get Started</CustomButton>
                 </Link>
               </li>
             </ul>
