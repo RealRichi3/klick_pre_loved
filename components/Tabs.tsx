@@ -20,7 +20,7 @@ export const Tabs: React.FC<props> = ({ items }) => {
           <div
             key={title}
             onClick={() => setActiveIndex(index)}
-            className={`w-full text-center p-5 border-b-2 transition-all duration-10 cursor-pointer text-[14px] md:text-[20px] ${
+            className={`w-full text-center p-5 border-b-2 transition-all duration-10 cursor-pointer text-[14px] md:text-[18px] ${
               activeIndex === index
                 ? "text-black font-semibold border-primary"
                 : "text-[#98999A] border-grey-400"
