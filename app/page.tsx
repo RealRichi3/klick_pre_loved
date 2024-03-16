@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer"
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
 import { HowToSell } from "@/components/HowToSell"
@@ -15,6 +16,7 @@ export default function Home() {
       <HowToSell />
       <SellersGuidelines />
       <SellWithUsForm />
+      <Footer />
     </main>
   )
 }
