@@ -35,7 +35,7 @@ export const FileInput: React.FC<FileInputProps> = ({ accept, value, id }) => {
           accept={accept}
         />
       </label>
-      <p className="text-secondary">
+      <p className="text-[#B429F9] text-bold text-[14px]">
         <i>{file?.name}</i>
       </p>
     </div>

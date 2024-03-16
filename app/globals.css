@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+.special-text {
+  -webkit-text-stroke: 2px #e10098;
+  -webkit-text-fill-color: transparent;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -66,7 +66,7 @@ const items: AccordionProps[] = [
         </div>
         <div className="mb-4">
           <p className="text-primary">Make the sale</p>
-          <p className="text-[#0B0E0C]/50">
+          <p className="text-[#0B0E0C]/50 mb-4">
             Select 3 or more photos and add them to your listing. Ensure the
             photos you upload depict the actual item as clearly as possible from
             all angles. Choose images that accurately indicate size, colour,
@@ -74,9 +74,9 @@ const items: AccordionProps[] = [
           </p>
           <p className="text-[#0B0E0C]/50 mb-4">
             1. Once the sale of your item is processed (once your item is sold,
-            we will inform you via email), keep it packed and ready. However, we
-            can offer your price for collection or alternatively you can have
-            the item delivered to our office.
+            we will inform you via email), keep it packed and ready. We can
+            offer you a price for collection or alternatively you can have the
+            item delivered to the Klick Drop-off Location.
           </p>
           <p className="text-[#0B0E0C]/50 mb-4">
             2. If any particular item is no longer available for sale, please
@@ -113,7 +113,7 @@ export const SellersGuidelines = () => {
       className="md:py-[0rem] pt-9 mb-[2rem] md:mb-[3rem] relative overflow-hidden reveal-down"
     >
       <div className="w-[90%] mx-auto md:w-[90%] lg:w-[40%] 3xl:w-[40%]">
-        <h2 className="md:text-[48px] text-[24px] pb-[1rem] md:pb-[2rem] text-center">
+        <h2 className="md:text-[40px] text-[24px] pb-[1rem] md:pb-[2rem] text-center">
           Sellers Guidelines
         </h2>
         <div>
