@@ -2,6 +2,7 @@
 import React from "react"
 import { TabProps, Tabs } from "./Tabs"
 import { ProductDetailsForm } from "./ProductDetailsForm"
+import { SellerInformationForm } from "./SellerInformationForm"
 const items: TabProps[] = [
   {
     title: "1/2. Product Details",
@@ -9,7 +10,7 @@ const items: TabProps[] = [
   },
   {
     title: "2/2. Seller Information",
-    content: <form>Hey</form>,
+    content: <SellerInformationForm />,
   },
 ]
 
