@@ -38,7 +38,7 @@ export const WhySell = () => {
         <h2 className="md:text-[48px] text-[24px] pb-[1rem] md:pb-[2rem] text-center">
           Why Sell with Us
         </h2>
-        <div className="grid md:grid-cols-4 grid-cols-2 gap-5">
+        <div className="grid lg:grid-cols-4 grid-cols-2 gap-5">
           {reasons.map((reason, index) => (
             <div className="bg-gray-200/30 rounded-lg" key={index}>
               <div className="p-4">

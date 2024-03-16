@@ -3,7 +3,7 @@ import React from "react"
 export const HowToSell = () => {
   return (
     <div
-      className="bg-[#E10098]/10 py-[1rem] md:py-[2rem] mb-[2rem] md:mb-[3rem] relative overflow-hidden reveal-down"
+      className="bg-[#E10098]/10 py-[1rem] md:py-[2rem] px-4 mb-[2rem] md:mb-[3rem] relative overflow-hidden reveal-down"
       id="how-to-sell"
     >
       <div className="w-[95%] mx-auto md:w-[90%] lg:w-[80%] 3xl:w-[70%]">
@@ -12,10 +12,10 @@ export const HowToSell = () => {
             How to Sell
           </h2>
 
-          <div className="md:flex items-center justify-center z-[2] relative hidden">
+          <div className="lg:flex items-center justify-center z-[2] relative hidden">
             <img src="/rings.svg" alt="How to sell" />
           </div>
-          <div className="w-full md:mt-[-18rem] z-[10] relative grid md:grid-cols-4 gap-5">
+          <div className="w-full lg:mt-[-18rem] z-[10] relative grid lg:grid-cols-4 md:grid-cols-2 gap-5">
             <div className="bg-white flex items-center justify-center gap-3 flex-col py-6 md:px-10 px-4">
               <img
                 src="/pencil.svg"
