@@ -36,7 +36,7 @@ export const Accordion: FC<props> = ({ items }) => {
               {item.content}
             </div>
           )}
-          {index !== lastItem && <hr className="my-[32px]" />}
+          <hr className="my-[32px]" />
         </div>
       ))}
     </div>

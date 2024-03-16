@@ -34,8 +34,8 @@ export const Header = () => {
             </li>
           ))}
           <li>
-            <Link href="">
-              <Button>Contact Us</Button>
+            <Link href="#sell-with-us">
+              <Button>Get Started</Button>
             </Link>
           </li>
         </ul>
@@ -73,8 +73,8 @@ export const Header = () => {
                 </li>
               ))}
               <li>
-                <Link href="/contact-us">
-                  <Button>Contact Us</Button>
+                <Link href="#sell-with-us">
+                  <Button>Get Started</Button>
                 </Link>
               </li>
             </ul>
