@@ -39,7 +39,7 @@ export const SellerInformationForm = ({
   const onFinish = async () => {
     setIsLoading(true)
     try {
-      const res = await fetch("http://localhost:3000/api/submit-product", {
+      const res = await fetch("/api/submit-product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,6 @@ export const SellerInformationForm = ({
         body: JSON.stringify(formData),
       })
       const data = await res.json()
-      console.log(data)
       if (data.success === false) {
         setIsLoading(false)
         openNotification(
