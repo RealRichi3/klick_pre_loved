@@ -27,22 +27,24 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <Radio.Group>
-            <Radio value="furniture">Furniture</Radio>
-            <Radio value="toys">Toys</Radio>
-            <Radio value="books">Books</Radio>
-            <Radio value="clothing">Clothing & Accessories</Radio>
-            <Radio value="maternity">Maternity</Radio>
-            <Radio value="bath">Bath and Diapering</Radio>
-            <Radio value="outdoor">Outdoor Play</Radio>
-            <Radio value="others">Others</Radio>
-          </Radio.Group>
-          <p className="mt-4">
-            <i>
-              Note: Only Brand New Clothing & Accessories are allowed to be
-              listed
-            </i>
-          </p>
+          <div>
+            <Radio.Group>
+              <Radio value="furniture">Furniture</Radio>
+              <Radio value="toys">Toys</Radio>
+              <Radio value="books">Books</Radio>
+              <Radio value="clothing">Clothing & Accessories</Radio>
+              <Radio value="maternity">Maternity</Radio>
+              <Radio value="bath">Bath and Diapering</Radio>
+              <Radio value="outdoor">Outdoor Play</Radio>
+              <Radio value="others">Others</Radio>
+            </Radio.Group>
+            <p className="mt-4">
+              <i>
+                Note: Only Brand New Clothing & Accessories are allowed to be
+                listed
+              </i>
+            </p>
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -95,13 +97,18 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <Input size="large" className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]" />
-          <p className="mt-4">
-            <i>
-              Note: It&apos;s always a good idea to verify the price online. We
-              double check this online!
-            </i>
-          </p>
+          <div>
+            <Input
+              size="large"
+              className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+            />
+            <p className="mt-4">
+              <i>
+                Note: It&apos;s always a good idea to verify the price online.
+                We double check this online!
+              </i>
+            </p>
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -115,10 +122,15 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <Input size="large" className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]" />
-          <p className="mt-4">
-            <i>Note: Please follow pricing guidelines for quick sales</i>
-          </p>
+          <div>
+            <Input
+              size="large"
+              className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+            />
+            <p className="mt-4">
+              <i>Note: Please follow pricing guidelines for quick sales</i>
+            </p>
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -177,7 +189,9 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <FileInput accept=".jpg, .png, .svg, .jpeg" id="front" />
+          <div>
+            <FileInput accept=".jpg, .png, .svg, .jpeg" id="front" />
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -192,7 +206,9 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <FileInput accept=".jpg, .png, .svg, .jpeg" id="left" />
+          <div>
+            <FileInput accept=".jpg, .png, .svg, .jpeg" id="left" />
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -206,7 +222,9 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <FileInput accept=".jpg, .png, .svg, .jpeg" id="Right" />
+          <div>
+            <FileInput accept=".jpg, .png, .svg, .jpeg" id="Right" />
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -220,7 +238,9 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <FileInput accept=".jpg, .png, .svg, .jpeg" id="Back" />
+          <div>
+            <FileInput accept=".jpg, .png, .svg, .jpeg" id="Back" />
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -234,13 +254,15 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <FileInput accept=".mp4, .mov" id="product_video" />
-          <p className="mt-4">
-            <i>
-              Note: Upload a Video in .MP4 or .MOV format (up to 20MB max).
-              Share a 360-angle video
-            </i>
-          </p>
+          <div>
+            <FileInput accept=".mp4, .mov" id="video" />
+            <p className="mt-4">
+              <i>
+                Note: Upload a Video in .MP4 or .MOV format (up to 20MB max).
+                Share a 360-angle video
+              </i>
+            </p>
+          </div>
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
