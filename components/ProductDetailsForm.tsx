@@ -1,19 +1,36 @@
 "use client"
 import React from "react"
 import { Form, Input, Radio, Space } from "antd"
-import { useForm } from "antd/es/form/Form"
+import { FormInstance, useForm } from "antd/es/form/Form"
 import { FileInput } from "./FileInput"
 import { CustomButton } from "./CustomButton"
+import { ProductI } from "@/app/api/product.type"
 
-export const ProductDetailsForm = () => {
-  const [form] = useForm()
-  const onFinish = (values: any) => {}
+interface props {
+  formData: ProductI
+  setFormData: React.Dispatch<React.SetStateAction<ProductI>>
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>
+  form1: FormInstance<any>
+  form2: FormInstance<any>
+}
+
+export const ProductDetailsForm = ({
+  formData,
+  setFormData,
+  setActiveIndex,
+  form1,
+  form2,
+}: props) => {
+  const onFinish = (values: any) => {
+    setActiveIndex(1)
+    console.log(formData)
+  }
   return (
     <div>
       <Form
-        form={form}
+        form={form1}
         layout="vertical"
-        initialValues={{}}
+        initialValues={formData}
         onFinish={onFinish}
       >
         {/* ----------------------------------------------------------- */}
@@ -28,7 +45,11 @@ export const ProductDetailsForm = () => {
           ]}
         >
           <div>
-            <Radio.Group>
+            <Radio.Group
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value })
+              }
+            >
               <Radio value="Furniture">Furniture</Radio>
               <Radio value="Toys">Toys</Radio>
               <Radio value="Books">Books</Radio>
@@ -52,7 +73,7 @@ export const ProductDetailsForm = () => {
         {/* ----------------------------------------------------------- */}
         <Form.Item
           label="Product Name & Brand"
-          name="productName"
+          name="product_name"
           rules={[
             {
               required: true,
@@ -60,7 +81,13 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <Input size="large" className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]" />
+          <Input
+            size="large"
+            className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+            onChange={(e) => {
+              setFormData({ ...formData, name: e.target.value })
+            }}
+          />
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
@@ -74,7 +101,11 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <Radio.Group>
+          <Radio.Group
+            onChange={(e) =>
+              setFormData({ ...formData, condition: e.target.value })
+            }
+          >
             <Space direction="vertical">
               <Radio value="Brand New (Sealed)- 70- 75% of Current Market Value">
                 Brand New (Sealed)- 70- 75% of Current Market Value
@@ -92,7 +123,7 @@ export const ProductDetailsForm = () => {
         {/* ----------------------------------------------------------- */}
         <Form.Item
           label="Original Price (Current Market Price)"
-          name="price"
+          name="original_price"
           rules={[
             {
               required: true,
@@ -103,8 +134,12 @@ export const ProductDetailsForm = () => {
         >
           <div>
             <Input
+              onChange={(e) =>
+                setFormData({ ...formData, original_price: e.target.value })
+              }
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+              type="number"
             />
             <p className="mt-4">
               <i>
@@ -128,6 +163,10 @@ export const ProductDetailsForm = () => {
         >
           <div>
             <Input
+              type="number"
+              onChange={(e) =>
+                setFormData({ ...formData, selling_price: e.target.value })
+              }
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
             />
@@ -149,13 +188,20 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <Input size="large" className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]" />
+          <Input
+            size="large"
+            type="number"
+            className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+            onChange={(e) =>
+              setFormData({ ...formData, year_of_purchase: e.target.value })
+            }
+          />
         </Form.Item>
 
         {/* ----------------------------------------------------------- */}
         <Form.Item
           label="Product Applicable Age Group"
-          name="age_group"
+          name="product_age_group"
           rules={[
             {
               required: true,
@@ -163,7 +209,11 @@ export const ProductDetailsForm = () => {
             },
           ]}
         >
-          <Radio.Group>
+          <Radio.Group
+            onChange={(e) =>
+              setFormData({ ...formData, product_age_group: e.target.value })
+            }
+          >
             <Radio value="0-6 Months">0-6 Months</Radio>
             <Radio value="6-12 Months">6-12 Months</Radio>
             <Radio value="1-2 Years">1-2 Years</Radio>
@@ -194,7 +244,13 @@ export const ProductDetailsForm = () => {
           ]}
         >
           <div>
-            <FileInput accept=".jpg, .png, .svg, .jpeg" id="front" />
+            <FileInput
+              accept=".jpg, .png, .svg, .jpeg"
+              id="front"
+              setValue={(value) =>
+                setFormData({ ...formData, front_side_image: value })
+              }
+            />
           </div>
         </Form.Item>
 
@@ -211,7 +267,13 @@ export const ProductDetailsForm = () => {
           ]}
         >
           <div>
-            <FileInput accept=".jpg, .png, .svg, .jpeg" id="left" />
+            <FileInput
+              accept=".jpg, .png, .svg, .jpeg"
+              id="left"
+              setValue={(value) =>
+                setFormData({ ...formData, left_side_image: value })
+              }
+            />
           </div>
         </Form.Item>
 
@@ -227,7 +289,13 @@ export const ProductDetailsForm = () => {
           ]}
         >
           <div>
-            <FileInput accept=".jpg, .png, .svg, .jpeg" id="Right" />
+            <FileInput
+              accept=".jpg, .png, .svg, .jpeg"
+              id="Right"
+              setValue={(value) =>
+                setFormData({ ...formData, right_side_image: value })
+              }
+            />
           </div>
         </Form.Item>
 
@@ -243,7 +311,13 @@ export const ProductDetailsForm = () => {
           ]}
         >
           <div>
-            <FileInput accept=".jpg, .png, .svg, .jpeg" id="Back" />
+            <FileInput
+              accept=".jpg, .png, .svg, .jpeg"
+              id="Back"
+              setValue={(value) =>
+                setFormData({ ...formData, back_side_image: value })
+              }
+            />
           </div>
         </Form.Item>
 
@@ -259,7 +333,13 @@ export const ProductDetailsForm = () => {
           ]}
         >
           <div>
-            <FileInput accept=".mp4, .mov" id="video" />
+            <FileInput
+              accept=".mp4, .mov"
+              id="video"
+              setValue={(value) =>
+                setFormData({ ...formData, product_video: value })
+              }
+            />
             <p className="mt-4">
               <i>
                 Note: Upload a Video in .MP4 or .MOV format (up to 20MB max).

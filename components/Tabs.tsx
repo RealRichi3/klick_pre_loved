@@ -8,10 +8,15 @@ export interface TabProps {
 
 export interface props {
   items: TabProps[]
+  activeIndex: number
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const Tabs: React.FC<props> = ({ items }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0)
+export const Tabs: React.FC<props> = ({
+  items,
+  activeIndex,
+  setActiveIndex,
+}) => {
   const titles = items.map((item) => item.title)
   return (
     <div className="border-2 border-grey-400 rounded-xl">
@@ -19,8 +24,7 @@ export const Tabs: React.FC<props> = ({ items }) => {
         {titles.map((title, index) => (
           <div
             key={title}
-            onClick={() => setActiveIndex(index)}
-            className={`w-full text-center p-5 border-b-2 transition-all duration-10 cursor-pointer text-[14px] md:text-[18px] ${
+            className={`w-full text-center p-5 border-b-2 transition-all duration-10 text-[14px] md:text-[18px] ${
               activeIndex === index
                 ? "text-black font-semibold border-primary"
                 : "text-[#98999A] border-grey-400"

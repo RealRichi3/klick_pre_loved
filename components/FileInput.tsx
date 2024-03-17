@@ -5,16 +5,27 @@ interface FileInputProps {
   accept?: string
   multiple?: boolean
   value?: string
-  setValue?: React.Dispatch<React.SetStateAction<string>>
+  setValue?: (value: string) => void
   id: string
 }
 
-export const FileInput: React.FC<FileInputProps> = ({ accept, value, id }) => {
+export const FileInput: React.FC<FileInputProps> = ({
+  accept,
+  value,
+  id,
+  setValue,
+}) => {
   const [file, setFile] = React.useState<File | null>(null)
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
     if (files) {
       setFile(files[0])
+      //Base64 string
+      const reader = new FileReader()
+      reader.onloadend = function () {
+        setValue && setValue(reader.result as string)
+      }
+      reader.readAsDataURL(files[0])
     }
   }
   return (

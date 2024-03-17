@@ -1,7 +1,6 @@
 export interface ProductI {
   category: string
   name: string
-  brand: string
   product_age_group: string
   original_price: string
   selling_price: string

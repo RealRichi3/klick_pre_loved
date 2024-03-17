@@ -17,6 +17,10 @@ html {
   -webkit-text-fill-color: transparent;
 }
 
+#seller_phone_number {
+  outline: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
