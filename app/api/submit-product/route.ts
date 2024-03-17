@@ -28,20 +28,19 @@ export async function POST(req: Request) {
     "seller_city",
     "seller_state",
   ]
+  let statusCode: null | number = null
   try {
     const body = await req.json()
     const missingFields = requiredFields.filter(
       (field) => !Object.keys(body).includes(field)
     )
-    if (missingFields.length > 0) {
-      return NextResponse.json(
-        {
-          message: `The following fields are missing: ${missingFields.join(
-            ", "
-          )}`,
-          success: false,
-        },
-        { status: 400 }
+    const emptyFields = requiredFields.filter(
+      (field) => !body[field] || /^\s*$/.test(body[field])
+    )
+    if (missingFields.length > 0 || emptyFields.length > 0) {
+      statusCode = 400
+      throw new Error(
+        `The following fields are missing: ${missingFields.join(", ")}`
       )
     }
     const serviceAccountAuth = new JWT({
@@ -58,7 +57,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     return NextResponse.json(
       { message: error.message, success: false },
-      { status: 500 }
+      { status: statusCode || 500 }
     )
   }
 }
