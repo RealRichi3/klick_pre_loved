@@ -5,9 +5,10 @@ import { v2 as cloudinary } from "cloudinary"
 import { requiredFields } from "./requiredFields"
 import { uploadBase64 } from "./uploadFile"
 
-const sheet_id = process.env.GOOGLE_SHEET_ID as string
-const apiKey = process.env.GOOGLE_PRIVATE_KEY as string
-const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL as string
+// Needed Environment variables
+const sheet_id = process.env.GOOGLE_SHEET_ID as string // Create a Google Sheet and get the ID
+const apiKey = process.env.GOOGLE_PRIVATE_KEY as string // From your Google Service Account
+const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL as string // From your Google Service Account
 const cloudinary_name = process.env.CLOUDINARY_NAME as string
 const cloudinary_api_key = process.env.CLOUDINARY_API_KEY as string
 const cloudinary_api_secret = process.env.CLOUDINARY_API_SECRET as string
@@ -69,10 +70,12 @@ export async function POST(req: Request) {
     body.product_video = video
 
     // Add data to Google Sheets
+
     const doc = new GoogleSpreadsheet(sheet_id, serviceAccountAuth)
     await doc.loadInfo()
     const sheet_title = doc.title
     const sheet = doc.sheetsByIndex[0]
+    await sheet.setHeaderRow(requiredFields)
     const row = await sheet.addRow(body)
 
     return NextResponse.json({
