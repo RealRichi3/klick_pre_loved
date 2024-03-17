@@ -39,9 +39,8 @@ export async function POST(req: Request) {
     )
     if (missingFields.length > 0 || emptyFields.length > 0) {
       statusCode = 400
-      throw new Error(
-        `The following fields are missing: ${missingFields.join(", ")}`
-      )
+      const arr = Array.from(new Set([...missingFields, ...emptyFields]))
+      throw new Error(`The following fields are required: ${arr.join(", ")}`)
     }
     const serviceAccountAuth = new JWT({
       email: clientEmail,
