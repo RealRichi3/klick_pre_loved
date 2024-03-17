@@ -1,5 +1,4 @@
 import { GoogleSpreadsheet } from "google-spreadsheet"
-import { NextApiRequest, NextApiResponse } from "next"
 import { NextResponse } from "next/server"
 import { JWT } from "google-auth-library"
 
@@ -7,8 +6,44 @@ export async function POST(req: Request) {
   const sheet_id = process.env.GOOGLE_SHEET_ID as string
   const apiKey = process.env.GOOGLE_PRIVATE_KEY as string
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL as string
+  const requiredFields = [
+    "category",
+    "name",
+    "brand",
+    "product_age_group",
+    "original_price",
+    "selling_price",
+    "condition",
+    "year_of_purchase",
+    "front_side_image",
+    "back_side_image",
+    "right_side_image",
+    "left_side_image",
+    "product_video",
+    "seller_first_name",
+    "seller_last_name",
+    "seller_email",
+    "seller_phone_number",
+    "seller_address",
+    "seller_city",
+    "seller_state",
+  ]
   try {
     const body = await req.json()
+    const missingFields = requiredFields.filter(
+      (field) => !Object.keys(body).includes(field)
+    )
+    if (missingFields.length > 0) {
+      return NextResponse.json(
+        {
+          message: `The following fields are missing: ${missingFields.join(
+            ", "
+          )}`,
+          success: false,
+        },
+        { status: 400 }
+      )
+    }
     const serviceAccountAuth = new JWT({
       email: clientEmail,
       key: apiKey,
@@ -19,10 +54,10 @@ export async function POST(req: Request) {
     await doc.loadInfo()
     const title = doc.title
 
-    return NextResponse.json({ message: "A ok!", body })
+    return NextResponse.json({ message: "A ok!", title })
   } catch (error: any) {
     return NextResponse.json(
-      { error: error, sheet_id, clientEmail },
+      { message: error.message, success: false },
       { status: 500 }
     )
   }

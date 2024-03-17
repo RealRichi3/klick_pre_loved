@@ -18,25 +18,27 @@ export const ProductDetailsForm = () => {
       >
         {/* ----------------------------------------------------------- */}
         <Form.Item
-          label="Product Information"
-          name="infomation"
+          label="Product Category"
+          name="category"
           rules={[
             {
               required: true,
-              message: "Please input the Product Information!",
+              message: "Please input the Product Category!",
             },
           ]}
         >
           <div>
             <Radio.Group>
-              <Radio value="furniture">Furniture</Radio>
-              <Radio value="toys">Toys</Radio>
-              <Radio value="books">Books</Radio>
-              <Radio value="clothing">Clothing & Accessories</Radio>
-              <Radio value="maternity">Maternity</Radio>
-              <Radio value="bath">Bath and Diapering</Radio>
-              <Radio value="outdoor">Outdoor Play</Radio>
-              <Radio value="others">Others</Radio>
+              <Radio value="Furniture">Furniture</Radio>
+              <Radio value="Toys">Toys</Radio>
+              <Radio value="Books">Books</Radio>
+              <Radio value="Clothing & Accessories">
+                Clothing & Accessories
+              </Radio>
+              <Radio value="Maternity">Maternity</Radio>
+              <Radio value="Bath and Diapering">Bath and Diapering</Radio>
+              <Radio value="Outdoor Play">Outdoor Play</Radio>
+              <Radio value="Others">Others</Radio>
             </Radio.Group>
             <p className="mt-4">
               <i>
@@ -74,11 +76,13 @@ export const ProductDetailsForm = () => {
         >
           <Radio.Group>
             <Space direction="vertical">
-              <Radio value="new">
+              <Radio value="Brand New (Sealed)- 70- 75% of Current Market Value">
                 Brand New (Sealed)- 70- 75% of Current Market Value
               </Radio>
-              <Radio value="used">Used - 50% of Current Market Value</Radio>
-              <Radio value="heavily_used">
+              <Radio value="Used - 50% of Current Market Value">
+                Used - 50% of Current Market Value
+              </Radio>
+              <Radio value="Heavily Used - 40% of Current Market Value">
                 Heavily Used - 40% of Current Market Value
               </Radio>
             </Space>
@@ -160,11 +164,11 @@ export const ProductDetailsForm = () => {
           ]}
         >
           <Radio.Group>
-            <Radio value="0-6">0-6 Months</Radio>
-            <Radio value="6-12">6-12 Months</Radio>
-            <Radio value="1-2">1-2 Years</Radio>
-            <Radio value="2-4">2-4 Years</Radio>
-            <Radio value="4+">4+ Years</Radio>
+            <Radio value="0-6 Months">0-6 Months</Radio>
+            <Radio value="6-12 Months">6-12 Months</Radio>
+            <Radio value="1-2 Years">1-2 Years</Radio>
+            <Radio value="2-4 Years">2-4 Years</Radio>
+            <Radio value="4+ Years">4+ Years</Radio>
           </Radio.Group>
         </Form.Item>
 
