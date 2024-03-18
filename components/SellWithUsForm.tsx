@@ -22,7 +22,7 @@ const initialValues: ProductI = {
   seller_first_name: "",
   seller_last_name: "",
   seller_email: "",
-  seller_phone_number: "",
+  seller_phone_number: "+234",
   seller_address: "",
   seller_city: "",
   seller_state: "",

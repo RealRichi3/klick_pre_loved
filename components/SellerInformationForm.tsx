@@ -165,12 +165,14 @@ export const SellerInformationForm = ({
                 size="large"
                 className="bg-[#FAFAFA] w-full border-gray-300 border-[1px] p-2 text-lg rounded-md"
                 country="NG"
+                defaultCountry="NG"
                 onChange={(value) =>
                   setFormData({
                     ...formData,
                     seller_phone_number: value as string,
                   })
                 }
+                value={formData.seller_phone_number}
               />
             </Form.Item>
           </div>

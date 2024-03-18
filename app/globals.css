@@ -19,6 +19,7 @@ html {
 
 #seller_phone_number {
   outline: none;
+  background-color: #fafafa;
 }
 
 @layer utilities {
