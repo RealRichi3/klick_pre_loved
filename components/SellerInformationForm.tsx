@@ -51,7 +51,9 @@ export const SellerInformationForm = ({
         setIsLoading(false)
         openNotification(
           <FaFrown className="text-[red] text-2xl" />,
-          data.message || data.data.messsage || "An error occurred"
+          data?.message?.replaceAll("_", " ") ||
+            data?.data?.messsage?.replaceAll("_", " ") ||
+            "An error occurred"
         )
         return
       }
@@ -67,7 +69,9 @@ export const SellerInformationForm = ({
       setIsLoading(false)
       openNotification(
         <FaFrown className="text-[red] text-xl" />,
-        error.message || error.data.messsage || "An error occurred"
+        error?.message?.replaceAll("_", " ") ||
+          error?.data?.messsage?.replaceAll("_", " ") ||
+          "An error occurred"
       )
     }
   }
