@@ -41,7 +41,7 @@ export const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="md:w-auto md:h-auto h-[15rem] relative reveal-down">
+        <div className="md:w-auto md:h-auto md:scale-100 scale-90 relative reveal-down">
           <Image
             alt="Girl"
             src="/girl.png"

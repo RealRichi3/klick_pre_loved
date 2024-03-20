@@ -11,8 +11,8 @@ export const Footer = () => {
           <div>
             <Logo />
             <p className="mt-7 md:w-[60%] text-[#6A6B6C]">
-              Klick - Multi-Vendor Marketplace. Shop from top level sellers,
-              shops, and stores in Nigeria
+              Klick - An Ezcart company. Shop from top level sellers, shops, and
+              stores in Nigeria
             </p>
           </div>
           <div className="flex md:gap-7 lg:gap-[5.5rem] gap-3  md:flex-row flex-col gap-3">
@@ -47,10 +47,10 @@ export const Footer = () => {
               <p className="text-lg mb-2">Contact</p>
               <ul className="text-[#6A6B6C]">
                 <li className="mb-2">
-                  <Link href={""}>FAQs</Link>
+                  <Link href={"#klick"}>FAQs</Link>
                 </li>
                 <li>
-                  <Link href={""}>Contact Us</Link>
+                  <Link href={"#klick"}>Contact Us</Link>
                 </li>
               </ul>
             </div>

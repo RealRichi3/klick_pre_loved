@@ -15,7 +15,10 @@ export const Header = () => {
   const [active, setActive] = React.useState("#why-sell-with-us")
   const [open, setOpen] = React.useState(false)
   return (
-    <header className="flex justify-between items-center md:py-[24px] py-[10px] flex-wrap w-[95%] mx-auto md:w-[80%] lg:w-[70%] 3xl:w-[60%]">
+    <header
+      className="flex justify-between items-center md:py-[24px] py-[10px] flex-wrap w-[95%] mx-auto md:w-[80%] lg:w-[70%] 3xl:w-[60%]"
+      id="klick"
+    >
       <Logo />
       <nav>
         <ul className="p-0 md:flex justifiy-between hidden items-center flex-wrap">
