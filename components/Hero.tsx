@@ -28,7 +28,7 @@ export const Hero = () => {
     <div className="bg-[#00A3E0]/10 md:min-h-[60vh] md:py-[0rem] py-8 pt-9 mb-5 md:mb-[2rem] relative overflow-hidden z-[10]">
       <div className="w-[93%] mx-auto md:w-[90%] lg:w-[80%] 3xl:w-[70%] flex md:flex-row flex-col-reverse gap-4 justify-between items-center">
         <div className="md:w-[50%] overflow-hidden relative z-[10]">
-          <h2 className="font-semibold md:text-[48px] lg:text-[70px] text-[30px] lg:leading-[74px] pb-[1rem] md:pb-[2rem] text-secondary md:text-start text-center  overflow-hidden reveal-down">
+          <h2 className="font-semibold md:text-[48px] lg:text-[70px] text-[24px] lg:leading-[74px] pb-[1rem] md:pb-[2rem] text-secondary md:text-start text-center  overflow-hidden reveal-down">
             When selling is all about saving
           </h2>
           <p className="lg:text-[32px] lg:leading-[38px] md:text-[24px]  md:text-start text-center  overflow-hidden reveal-down mb-5">
@@ -41,7 +41,7 @@ export const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="md:w-auto md:h-auto md:scale-100 scale-90 relative reveal-down">
+        <div className="md:w-auto md:h-auto h-[275px] relative reveal-down">
           <Image
             alt="Girl"
             src="/girl.png"

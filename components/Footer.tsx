@@ -50,7 +50,9 @@ export const Footer = () => {
                   <Link href={"#klick"}>FAQs</Link>
                 </li>
                 <li>
-                  <Link href={"#klick"}>Contact Us</Link>
+                  <Link href={"https://wa.link/vz1nr0"} target="_blank">
+                    Contact Us
+                  </Link>
                 </li>
               </ul>
             </div>
