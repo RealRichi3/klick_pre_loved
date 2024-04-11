@@ -3,6 +3,7 @@ import { FaRegClock } from "react-icons/fa"
 import { PiClockClockwise } from "react-icons/pi"
 import { SlWallet } from "react-icons/sl"
 import { TbUserCancel } from "react-icons/tb"
+import ReactPlayer from "react-player"
 
 const reasons = [
   {
@@ -38,6 +39,7 @@ export const WhySell = () => {
         <h2 className="md:text-[40px] text-[24px] pb-[1rem] md:pb-[2rem] text-center">
           Why Sell with Us
         </h2>
+
         <div className="grid lg:grid-cols-4 grid-cols-2 gap-5">
           {reasons.map((reason, index) => (
             <div className="bg-gray-200/30 rounded-lg" key={index}>
@@ -52,6 +54,9 @@ export const WhySell = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="w-full flex justify-center my-5">
+          <ReactPlayer url="https://youtu.be/Mffa6kjiMig" />
         </div>
       </div>
     </div>
