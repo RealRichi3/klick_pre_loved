@@ -245,7 +245,7 @@ export const ProductDetailsForm = ({
         >
           <div>
             <FileInput
-              accept=".jpg, .png, .svg, .jpeg"
+              accept=".jpg, .png, .jpeg"
               id="front"
               setValue={(value) =>
                 setFormData({ ...formData, front_side_image: value })
@@ -268,7 +268,7 @@ export const ProductDetailsForm = ({
         >
           <div>
             <FileInput
-              accept=".jpg, .png, .svg, .jpeg"
+              accept=".jpg, .png, .jpeg"
               id="left"
               setValue={(value) =>
                 setFormData({ ...formData, left_side_image: value })
@@ -290,7 +290,7 @@ export const ProductDetailsForm = ({
         >
           <div>
             <FileInput
-              accept=".jpg, .png, .svg, .jpeg"
+              accept=".jpg, .png, .jpeg"
               id="Right"
               setValue={(value) =>
                 setFormData({ ...formData, right_side_image: value })
@@ -312,7 +312,7 @@ export const ProductDetailsForm = ({
         >
           <div>
             <FileInput
-              accept=".jpg, .png, .svg, .jpeg"
+              accept=".jpg, .png, .jpeg"
               id="Back"
               setValue={(value) =>
                 setFormData({ ...formData, back_side_image: value })
