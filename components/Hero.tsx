@@ -41,10 +41,10 @@ export const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="md:w-auto md:h-auto h-[275px] relative reveal-down">
+        <div className="md:w-auto md:h-[775px] h-[325px] relative reveal-down">
           <Image
             alt="Girl"
-            src="/girl.png"
+            src="/girl2.jpg"
             width={"100%"}
             height={"100%"}
             preview={false}
