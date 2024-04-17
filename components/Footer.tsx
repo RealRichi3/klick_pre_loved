@@ -11,10 +11,7 @@ export const Footer = () => {
         <div className="flex justify-between md:flex-row flex-col gap-10">
           <div>
             <Logo />
-            <p className="mt-7 md:w-[60%] text-[#6A6B6C]">
-              Klick - An Ezcart company. Shop from top level sellers, shops, and
-              stores in Nigeria
-            </p>
+            <p className="mt-3  text-[#6A6B6C]">Klick - An Ezcart company.</p>
           </div>
           <div>
             <div className="flex md:gap-7 lg:gap-[5.5rem] gap-3  md:flex-row flex-col gap-3">

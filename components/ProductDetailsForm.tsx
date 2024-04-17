@@ -49,6 +49,7 @@ export const ProductDetailsForm = ({
               onChange={(e) =>
                 setFormData({ ...formData, category: e.target.value })
               }
+              value={formData.category}
             >
               <Radio value="Furniture">Furniture</Radio>
               <Radio value="Toys">Toys</Radio>
@@ -87,6 +88,7 @@ export const ProductDetailsForm = ({
             onChange={(e) => {
               setFormData({ ...formData, name: e.target.value })
             }}
+            value={formData.name}
           />
         </Form.Item>
 
@@ -105,6 +107,7 @@ export const ProductDetailsForm = ({
             onChange={(e) =>
               setFormData({ ...formData, condition: e.target.value })
             }
+            value={formData.condition}
           >
             <Space direction="vertical">
               <Radio value="Brand New (Sealed)- 70- 75% of Current Market Value">
@@ -140,6 +143,7 @@ export const ProductDetailsForm = ({
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
               type="number"
+              value={formData.original_price}
             />
             <p className="mt-4">
               <i>
@@ -169,9 +173,13 @@ export const ProductDetailsForm = ({
               }
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+              value={formData.selling_price}
             />
             <p className="mt-4">
-              <i>Note: Please follow pricing guidelines for quick sales</i>
+              <i>
+                Note: Please follow pricing guidelines for quick sales and do
+                note that we deduct a 12.5% commission of the sale price.
+              </i>
             </p>
           </div>
         </Form.Item>
@@ -195,6 +203,7 @@ export const ProductDetailsForm = ({
             onChange={(e) =>
               setFormData({ ...formData, year_of_purchase: e.target.value })
             }
+            value={formData.year_of_purchase}
           />
         </Form.Item>
 
@@ -213,6 +222,7 @@ export const ProductDetailsForm = ({
             onChange={(e) =>
               setFormData({ ...formData, product_age_group: e.target.value })
             }
+            value={formData.product_age_group}
           >
             <Radio value="0-6 Months">0-6 Months</Radio>
             <Radio value="6-12 Months">6-12 Months</Radio>
@@ -250,6 +260,7 @@ export const ProductDetailsForm = ({
               setValue={(value) =>
                 setFormData({ ...formData, front_side_image: value })
               }
+              value={formData.front_side_image}
             />
           </div>
         </Form.Item>
@@ -273,6 +284,7 @@ export const ProductDetailsForm = ({
               setValue={(value) =>
                 setFormData({ ...formData, left_side_image: value })
               }
+              value={formData.left_side_image}
             />
           </div>
         </Form.Item>
@@ -295,6 +307,7 @@ export const ProductDetailsForm = ({
               setValue={(value) =>
                 setFormData({ ...formData, right_side_image: value })
               }
+              value={formData.right_side_image}
             />
           </div>
         </Form.Item>
@@ -317,6 +330,7 @@ export const ProductDetailsForm = ({
               setValue={(value) =>
                 setFormData({ ...formData, back_side_image: value })
               }
+              value={formData.back_side_image}
             />
           </div>
         </Form.Item>
@@ -339,6 +353,7 @@ export const ProductDetailsForm = ({
               setValue={(value) =>
                 setFormData({ ...formData, product_video: value })
               }
+              value={formData.product_video}
             />
             <p className="mt-4">
               <i>

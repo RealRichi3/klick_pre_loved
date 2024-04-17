@@ -8,7 +8,7 @@ export const HowToSell = () => {
     >
       <div className="w-[95%] mx-auto md:w-[90%] lg:w-[80%] 3xl:w-[70%]">
         <div className="md:py-[0rem] pt-9 mb-[2rem] md:mb-[3rem] relative overflow-hidden reveal-down">
-          <h2 className="md:text-[40px] text-[24px] pb-[1rem] md:pb-[2rem] text-center">
+          <h2 className="md:text-[40px] text-[24px] pb-[1rem] md:pb-[2rem] text-center capitalize">
             How to Sell
           </h2>
 

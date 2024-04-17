@@ -32,7 +32,7 @@ export const Accordion: FC<props> = ({ items }) => {
             </p>
           </div>
           {activeIndex === index && (
-            <div className="reveal-down overflow-hidden transition ease-in-out delay-[5s]">
+            <div className="reveal-down overflow-hidden transition ease-in-out delay-[5s] text-sm md:text-md">
               {item.content}
             </div>
           )}
