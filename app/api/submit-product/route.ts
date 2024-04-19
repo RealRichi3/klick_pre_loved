@@ -86,8 +86,7 @@ export async function POST(req: Request) {
     } catch (error: any) {
         return NextResponse.json(
             {
-                message: error.message, success: false, error: error.message, errorObject: error,
-                apiKey, GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY
+                message: error.message, success: false, error: error.message, 
             },
             { status: statusCode || 500 }
         )
