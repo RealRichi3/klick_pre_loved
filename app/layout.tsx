@@ -7,7 +7,10 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
     title: "Klick",
-    description: "Built with Next",
+    description: "Klick Preloved",
+    icons: {
+        icon: "/public/favicon.ico",
+    }
 }
 
 export default function RootLayout({
@@ -17,9 +20,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <Head>
-                <link rel="icon" href="/public/favicon.ico" type="image/x-icon" sizes="1364x1364" />
-            </Head>
             <body className={inter.className}>{children}</body>
         </html>
     )
