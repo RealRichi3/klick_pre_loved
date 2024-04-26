@@ -47,27 +47,19 @@ export const Hero = () => {
                 </div>
                 <div className="hidden md:block md:w-[50%] md:h-[100%] flex justify-center items-center ">
                     <div style={{ width: "75%" }}>
-                        <Carousel autoplay style={{ width: "100%", height: "100%" }} className="overflow-hidden">
-                            <div className="" style={{ borderRadius: '30px', overflow: 'hidden' }}>
-                                <Image
-                                    alt="Girl"
-                                    style={{ borderRadius: '30px' }}
-                                    src="/klick_preloved_1.png"
-                                    width={"100%"}
-                                    height={"100%"}
-                                    preview={false}
-                                />
-                            </div>
-                            <div className="" style={{ borderRadius: '30px', overflow: 'hidden' }}>
-                                <Image
-                                    alt="Girl"
-                                    style={{ borderRadius: '30px' }}
-                                    src="/klick_preloved.png"
-                                    width={"100%"}
-                                    height={"100%"}
-                                    preview={false}
-                                />
-                            </div>
+                        <Carousel autoplay style={{ width: "100%", height: "100%", borderRadius: '20px' }} className="overflow-hidden">
+                            <Image
+                                alt="Girl"
+                                style={{ borderRadius: '30px' }}
+                                src="/klick_preloved_1.png"
+                                preview={false}
+                            />
+                            <Image
+                                alt="Girl"
+                                style={{ borderRadius: '30px' }}
+                                src="/klick_preloved.png"
+                                preview={false}
+                            />
                         </Carousel>
                     </div>
                 </div>

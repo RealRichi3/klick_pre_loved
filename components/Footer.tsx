@@ -11,7 +11,7 @@ export const Footer = () => {
         <div className="flex justify-between md:flex-row flex-col gap-10">
           <div>
             <Logo />
-            <p className="mt-3  text-[#6A6B6C]">Klick - An Ezcart company.</p>
+            <p className="mt-3  text-[#6A6B6C]">Klick - An Ezcart Africa Ltd company.</p>
           </div>
           <div>
             <div className="flex md:gap-7 lg:gap-[5.5rem] gap-3  md:flex-row flex-col gap-3">
@@ -19,10 +19,10 @@ export const Footer = () => {
                 <p className="text-lg mb-2">Company</p>
                 <ul className="text-[#6A6B6C]">
                   <li className="mb-2">
-                    <Link href={"#why-sell-with-us"}>Why Sell with Us</Link>
+                    <Link href={"#why-sell-with-us"}>Why Sell @ith Us</Link>
                   </li>
                   <li>
-                    <Link href={"#how-to-sell"}>How to Sell</Link>
+                    <Link href={"#how-to-sell"}>How To Sell</Link>
                   </li>
                 </ul>
               </div>
