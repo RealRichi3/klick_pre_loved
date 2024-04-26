@@ -7,8 +7,8 @@ import { CloseCircleOutlined, MenuFoldOutlined } from "@ant-design/icons"
 import { CustomButton } from "./CustomButton"
 
 const paths = [
-  { path: "#why-sell-with-us", name: "Why sell with us" },
-  { path: "#how-to-sell", name: "How to Sell" },
+  { path: "#why-sell-with-us", name: "Why Sell With Us" },
+  { path: "#how-to-sell", name: "How To Sell" },
   { path: "#sellers-guidelines", name: "Sellers Guidelines" },
 ]
 export const Header = () => {
