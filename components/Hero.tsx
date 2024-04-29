@@ -46,8 +46,8 @@ export const Hero = () => {
                     </div>
                 </div>
                 <div className="hidden md:block md:w-[50%] md:h-[100%] flex justify-center items-center ">
-                    <div style={{ width: "75%" }}>
-                        <Carousel autoplay style={{ width: "900px", height: "600px", borderRadius: '20px' }} className="overflow-hidden">
+                    <div className="w-full h-full">
+                        <Carousel autoplay style={{  borderRadius: '20px' }} className="md:w-[90%] md:h-[100%] overflow-hidden">
                             <Image
                                 alt="Girl"
                                 style={{ borderRadius: '30px' }}
