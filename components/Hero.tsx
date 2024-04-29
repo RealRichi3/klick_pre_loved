@@ -1,12 +1,15 @@
 "use client"
 import { Carousel, Image } from "antd"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import Link from "next/link"
 import { CustomButton } from "./CustomButton"
+import { useWindowSize } from "@uidotdev/usehooks"
 
 export const Hero = () => {
+    const size = useWindowSize();
+
     useGSAP(() => {
         gsap.from(".reveal-down", {
             y: 100,
@@ -24,13 +27,14 @@ export const Hero = () => {
             delay: 0.5,
         })
     }, [])
+
     return (
         <div className="bg-[#00A3E0]/10 md:min-h-[60vh] md:py-[0rem] py-8 pt-9 mb-5 md:mb-[2rem] relative overflow-hidden z-[10]" style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
         }}>
-            <div className="w-[93%] mx-auto md:w-[90%] lg:w-[80%] 3xl:w-[70%] flex flex-col-reverse md:flex-row justify-center items-center gap-4" style={{ height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="w-[93%] mx-auto md:w-[90%] lg:w-[80%] 3xl:w-[70%] flex flex-col-reverse md:flex-row justify-center items-center gap-4 sm:flex-col" style={{ height: '100%', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="md:w-[50%] overflow-hidden relative z-[10] text-center md:text-start">
                     <h2 className="font-semibold md:text-[48px] lg:text-[70px] text-[24px] lg:leading-[74px] pb-[1rem] md:pb-[2rem] text-secondary overflow-hidden reveal-down">
                         When selling is all about saving
@@ -45,9 +49,11 @@ export const Hero = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="hidden md:block md:w-[50%] md:h-[100%] flex justify-center items-center ">
-                    <div className="w-full h-full">
-                        <Carousel autoplay style={{  borderRadius: '20px' }} className="md:w-[90%] md:h-[100%] overflow-hidden">
+
+                <div className="md:block md:w-[50%] md:h-[100%] flex justify-center items-center ">
+
+                    <div className="w-full h-full" key={2} style={{ maxWidth: size.width < 768 ? '25rem' : '' }}>
+                        <Carousel autoplay style={{ borderRadius: '20px' }} className="md:w-[90%] md:h-[100%] overflow-hidden">
                             <Image
                                 alt="Girl"
                                 style={{ borderRadius: '30px' }}
@@ -63,9 +69,9 @@ export const Hero = () => {
                         </Carousel>
                     </div>
                 </div>
-                <div className="absolute bottom-[20%] left-[-30%] md:block hidden">
+                {/* <div className="absolute bottom-[20%] left-[-30%] md:block hidden">
                     <img src="/butterfly.svg" alt="Hero" />
-                </div>
+                </div> */}
             </div>
             <div className="absolute top-[10%] right-[40%] md:block hidden reveal">
                 <img src="/butterfly.svg" alt="Hero" />

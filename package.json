@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.0",
+    "@uidotdev/usehooks": "^2.4.1",
     "antd": "^5.15.2",
     "cloudinary": "^2.0.3",
     "google-auth-library": "^9.7.0",
