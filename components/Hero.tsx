@@ -52,7 +52,7 @@ export const Hero = () => {
 
                 <div className="md:block md:w-[50%] md:h-[100%] flex justify-center items-center ">
 
-                    <div className="w-full h-full" key={2} style={{ maxWidth: size.width < 768 ? '25rem' : '' }}>
+                    <div className="w-full h-full" key={2} style={{ maxWidth: (size?.width ?? 0) < 768 ? '25rem' : '' }}>
                         <Carousel autoplay style={{ borderRadius: '20px' }} className="md:w-[90%] md:h-[100%] overflow-hidden">
                             <Image
                                 alt="Girl"
