@@ -125,6 +125,27 @@ export const ProductDetailsForm = ({
 
         {/* ----------------------------------------------------------- */}
         <Form.Item
+          label="Wear and Tear"
+          name="wear_and_tear"
+          rules={[
+            {
+              required: false,
+              message:
+                "Please input the Wear and Tear (if any) of the Product!",
+            },
+          ]}
+        >
+            <Input
+              onChange={(e) =>
+                setFormData({ ...formData, wear_tear: e.target.value })
+              }
+              size="large"
+              className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+              type="text"
+              value={formData.wear_tear}
+            />
+        </Form.Item>
+        <Form.Item
           label="Original Price (Current Market Price)"
           name="original_price"
           rules={[

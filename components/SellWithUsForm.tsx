@@ -26,6 +26,7 @@ const initialValues: ProductI = {
   seller_address: "",
   seller_city: "",
   seller_state: "",
+  wear_tear: '',
 }
 
 export const SellWithUsForm = () => {

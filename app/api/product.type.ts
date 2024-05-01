@@ -18,4 +18,5 @@ export interface ProductI {
   seller_address: string
   seller_city: string
   seller_state: string
+  wear_tear: string
 }

@@ -17,6 +17,7 @@ export async function POST(req: Request) {
     let statusCode: null | number = null
     try {
         const body: Record<string, string> = await req.json()
+        console.log({ body })
 
         // Validate required fields
         const missingFields = requiredFields.filter(
@@ -86,7 +87,7 @@ export async function POST(req: Request) {
     } catch (error: any) {
         return NextResponse.json(
             {
-                message: error.message, success: false, error: error.message, 
+                message: error.message, success: false, error: error.message,
             },
             { status: statusCode || 500 }
         )
