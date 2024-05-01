@@ -4,6 +4,7 @@ import { JWT } from "google-auth-library"
 import { v2 as cloudinary } from "cloudinary"
 import { requiredFields } from "./requiredFields"
 import { uploadBase64 } from "./uploadFile"
+import nodemailer from 'nodemailer'
 
 // Needed Environment variables
 const sheet_id = process.env.GOOGLE_SHEET_ID as string // Create a Google Sheet and get the ID
@@ -17,7 +18,6 @@ export async function POST(req: Request) {
     let statusCode: null | number = null
     try {
         const body: Record<string, string> = await req.json()
-        console.log({ body })
 
         // Validate required fields
         const missingFields = requiredFields.filter(
@@ -79,11 +79,49 @@ export async function POST(req: Request) {
         await sheet.setHeaderRow(requiredFields)
         const row = await sheet.addRow(body)
 
-        return NextResponse.json({
+        const transporter = nodemailer.createTransport({
+            port: parseInt(process.env.EMAIL_PORT?.toString() ?? '465', 10),
+            host: process.env.EMAIL_HOST as string,
+            secure: true,
+            auth: {
+                user: process.env.EMAIL_HOST_ADDRESS,
+                pass: process.env.EMAIL_PASS,
+            },
+        })
+
+
+
+        try {
+            await transporter.sendMail({
+                from: process.env.EMAIL_HOST_ADDRESS as string,
+                to: body.seller_email,
+                subject: 'Product Submitted',
+                text: `
+                Dear Klick Preloved Seller , 
+    
+                Thank you for listing your product on Klick Preloved.
+    
+                Your listing is currently under review. You will receive an email confirming your successful listing within 24 - 48hours. Alternatively a Klick representative will contact you if further details on your listing is required.
+    
+    
+                Thank you 
+    
+                Klick Preloved 
+                www.klick.africa
+                +234 809 122 0000
+                klickpreloved@klick.africa
+            `,
+            }).catch(e => console.log)
+
+        } catch (error) {
+            console.log({ error })
+        }
+        const nextRes = NextResponse.json({
             message: "Product submitted successfully",
             sheet_title,
             row: row.toObject(),
         })
+        return nextRes
     } catch (error: any) {
         return NextResponse.json(
             {
