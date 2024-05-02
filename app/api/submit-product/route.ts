@@ -80,7 +80,8 @@ export async function POST(req: Request) {
     const row = await sheet.addRow(body);
 
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
+      host: process.env.EMAIL_HOST as string,
+      port: process.env.EMAIL_PORT,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
