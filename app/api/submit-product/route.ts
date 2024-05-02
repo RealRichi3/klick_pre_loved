@@ -4,7 +4,7 @@ import { JWT } from "google-auth-library";
 import { v2 as cloudinary } from "cloudinary";
 import { requiredFields } from "./requiredFields";
 import { uploadBase64 } from "./uploadFile";
-import nodemailer from "nodemailer";
+import nodemailer, { Transport, TransportOptions } from "nodemailer";
 
 // Needed Environment variables
 const sheet_id = process.env.GOOGLE_SHEET_ID as string; // Create a Google Sheet and get the ID
@@ -80,8 +80,8 @@ export async function POST(req: Request) {
     const row = await sheet.addRow(body);
 
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST as string,
-      port: process.env.EMAIL_PORT,
+      host: process.env.EMAIL_HOST as any,
+      port: 2525,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
