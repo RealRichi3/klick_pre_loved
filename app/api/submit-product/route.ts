@@ -79,20 +79,21 @@ export async function POST(req: Request) {
     await sheet.setHeaderRow(requiredFields);
     const row = await sheet.addRow(body);
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST as any,
-      port: 2525,
+    const config = {
+      host: process.env.EMAIL_HOST,
+      port: 587,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-    });
+    };
+    const transporter = nodemailer.createTransport(config);
 
     try {
       console.log("Sending email");
       await transporter
         .sendMail({
-          from: process.env.EMAIL_HOST_ADDRESS as string,
+          from: `Klick Preloved <${process.env.EMAIL_HOST_ADDRESS}>` as string,
           to: body.seller_email,
           subject: "Product Submitted",
           text: `
@@ -119,7 +120,7 @@ export async function POST(req: Request) {
       console.log({ error });
     }
     const nextRes = NextResponse.json({
-      message: "Product submitted successfully",
+      message: "You have successfully submitted your product for review",
       sheet_title,
       row: row.toObject(),
     });
