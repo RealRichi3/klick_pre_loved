@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react"
-import { Form, Input, notification, message as antMessage } from "antd"
+import { Form, Input, notification, message as antMessage, Select } from "antd"
 import { FormInstance, useForm } from "antd/es/form/Form"
 import { CustomButton } from "./CustomButton"
 import { ProductI } from "@/app/api/product.type"
@@ -9,6 +9,7 @@ import "react-phone-number-input/style.css"
 import PhoneInputWithCountrySelect from "react-phone-number-input"
 import { BiSmile } from "react-icons/bi"
 import { FaFrown } from "react-icons/fa"
+import DataStore from './store.json'
 
 interface props {
     formData: ProductI
@@ -27,6 +28,7 @@ export const SellerInformationForm = ({
 }: props) => {
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
     const [api, contextHolder] = notification.useNotification()
+    const [selectedStateId, setSelectedStateId] = useState<string>("")
 
     const openNotification = (icon: React.JSX.Element, message: string) => {
         api.open({
@@ -210,12 +212,11 @@ export const SellerInformationForm = ({
                                 },
                             ]}
                         >
-                            <Input
+                            <Select
                                 size="large"
                                 className="bg-[#FAFAFA]"
-                                onChange={(e) =>
-                                    setFormData({ ...formData, seller_state: e.target.value })
-                                }
+                                onChange={(e) => setFormData({ ...formData, seller_state: e })}
+                                options={DataStore.states.map((state) => ({ value: state.name, label: state.name, key: state.id }))}
                             />
                         </Form.Item>
                     </div>
@@ -232,11 +233,12 @@ export const SellerInformationForm = ({
                                 },
                             ]}
                         >
-                            <Input
+                            <Select
                                 size="large"
                                 className="bg-[#FAFAFA]"
+                                options={DataStore.states.find((state) => state.name === formData.seller_state)?.cities.map((city) => ({ value: city.name, label: city.name, key: city.id }))}
                                 onChange={(e) =>
-                                    setFormData({ ...formData, seller_city: e.target.value })
+                                    setFormData({ ...formData, seller_city: e })
                                 }
                             />
                         </Form.Item>
