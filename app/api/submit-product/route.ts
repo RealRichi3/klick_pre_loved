@@ -115,7 +115,7 @@ export async function POST(req: Request) {
             console.log({ error });
         }
         const nextRes = NextResponse.json({
-            message: "You have successfully submitted your product for review",
+            message: "Thank you, you have successfully submitted your product listing for review.",
             sheet_title,
             row: row.toObject(),
         });
