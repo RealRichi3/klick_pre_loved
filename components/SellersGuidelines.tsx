@@ -24,7 +24,7 @@ const items: AccordionProps[] = [
                         Select 3 or more photos and add them to your listing. Ensure the
                         photos you upload depict the actual item as clearly as possible from
                         all angles. Choose images that accurately indicate size, colour,
-                        make and signs of wear and tear, if any.
+                        make and signs of wear and tear, if any. Please make sure the file sizes are less than 4mb
                     </p>
                 </div>
                 <div className="mb-4">
