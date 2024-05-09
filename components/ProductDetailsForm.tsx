@@ -259,7 +259,7 @@ export const ProductDetailsForm = ({
           <p className="text-md">
             The better the photo, the faster the sale! Click your items in a
             neutral, uncluttered, well-lit background. Aim for photos with items
-            in sharp focus. Avoid blurry shots.
+            in sharp focus. Avoid blurry shots. Note: All file sizes should be atmost 4MB
           </p>
         </div>
 
@@ -378,7 +378,7 @@ export const ProductDetailsForm = ({
             />
             <p className="mt-4">
               <i>
-                Note: Upload a Video in .MP4 or .MOV format (up to 20MB max).
+                Note: Upload a Video in .MP4 or .MOV format. All file sizes should be atmost 4MB .
                 Share a 360-angle video
               </i>
             </p>
