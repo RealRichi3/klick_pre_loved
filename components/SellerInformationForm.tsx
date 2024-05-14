@@ -40,7 +40,7 @@ export const SellerInformationForm = ({
   const onFinish = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/preloved", {
+      const res = await fetch("https://klick-complaints-api.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
