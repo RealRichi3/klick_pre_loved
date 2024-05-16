@@ -1,17 +1,17 @@
-"use client"
-import React from "react"
-import { Form, Input, Radio, Space } from "antd"
-import { FormInstance, useForm } from "antd/es/form/Form"
-import { FileInput } from "./FileInput"
-import { CustomButton } from "./CustomButton"
-import { ProductI } from "@/app/api/product.type"
+"use client";
+import React from "react";
+import { Form, Input, Radio, Space } from "antd";
+import { FormInstance, useForm } from "antd/es/form/Form";
+import { FileInput } from "./FileInput";
+import { CustomButton } from "./CustomButton";
+import { ProductI } from "@/app/api/product.type";
 
 interface props {
-  formData: ProductI
-  setFormData: React.Dispatch<React.SetStateAction<ProductI>>
-  setActiveIndex: React.Dispatch<React.SetStateAction<number>>
-  form1: FormInstance<any>
-  form2: FormInstance<any>
+  formData: ProductI;
+  setFormData: React.Dispatch<React.SetStateAction<ProductI>>;
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+  form1: FormInstance<any>;
+  form2: FormInstance<any>;
 }
 
 export const ProductDetailsForm = ({
@@ -22,9 +22,9 @@ export const ProductDetailsForm = ({
   form2,
 }: props) => {
   const onFinish = (values: any) => {
-    setActiveIndex(1)
-    console.log(formData)
-  }
+    setActiveIndex(1);
+    console.log(formData);
+  };
   return (
     <div>
       <Form
@@ -86,7 +86,7 @@ export const ProductDetailsForm = ({
             size="large"
             className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
             onChange={(e) => {
-              setFormData({ ...formData, name: e.target.value })
+              setFormData({ ...formData, name: e.target.value });
             }}
             value={formData.name}
           />
@@ -127,23 +127,24 @@ export const ProductDetailsForm = ({
         <Form.Item
           label="Wear and Tear"
           name="wear_and_tear"
+          required
           rules={[
             {
-              required: false,
+              required: true,
               message:
-                "Please input the Wear and Tear (if any) of the Product!",
+                "Please input the Wear and Tear of the Product!",
             },
           ]}
         >
-            <Input
-              onChange={(e) =>
-                setFormData({ ...formData, wear_tear: e.target.value })
-              }
-              size="large"
-              className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
-              type="text"
-              value={formData.wear_tear}
-            />
+          <Input
+            onChange={(e) =>
+              setFormData({ ...formData, wear_tear: e.target.value })
+            }
+            size="large"
+            className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+            type="text"
+            value={formData.wear_tear}
+          />
         </Form.Item>
         <Form.Item
           label="Original Price (Current Market Price)"
@@ -259,7 +260,8 @@ export const ProductDetailsForm = ({
           <p className="text-md">
             The better the photo, the faster the sale! Click your items in a
             neutral, uncluttered, well-lit background. Aim for photos with items
-            in sharp focus. Avoid blurry shots. Note: All file sizes should be atmost 4MB
+            in sharp focus. Avoid blurry shots. Note: All file sizes should be
+            atmost 4MB
           </p>
         </div>
 
@@ -378,8 +380,8 @@ export const ProductDetailsForm = ({
             />
             <p className="mt-4">
               <i>
-                Note: Upload a Video in .MP4 or .MOV format. All file sizes should be atmost 4MB .
-                Share a 360-angle video
+                Note: Upload a Video in .MP4 or .MOV format. All file sizes
+                should be atmost 4MB . Share a 360-angle video
               </i>
             </p>
           </div>
@@ -389,5 +391,5 @@ export const ProductDetailsForm = ({
         <CustomButton>Next</CustomButton>
       </Form>
     </div>
-  )
-}
+  );
+};
