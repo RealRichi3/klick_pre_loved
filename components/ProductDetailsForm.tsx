@@ -131,8 +131,7 @@ export const ProductDetailsForm = ({
           rules={[
             {
               required: true,
-              message:
-                "Please input the Wear and Tear of the Product!",
+              message: "Please input the Wear and Tear of the Product!",
             },
           ]}
         >
@@ -147,7 +146,7 @@ export const ProductDetailsForm = ({
           />
         </Form.Item>
         <Form.Item
-          label="Original Price (Current Market Price)"
+          label="Original Price (Current Market Price) - NGN"
           name="original_price"
           rules={[
             {
@@ -178,7 +177,7 @@ export const ProductDetailsForm = ({
 
         {/* ----------------------------------------------------------- */}
         <Form.Item
-          label="Selling Price"
+          label="Selling Price (NGN)"
           name="selling_price"
           rules={[
             {
