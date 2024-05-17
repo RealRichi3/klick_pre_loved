@@ -27,7 +27,7 @@ export const SellerInformationForm = ({
 }: props) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [api, contextHolder] = notification.useNotification();
-  const [formData, setFormData] = useState<typeof _formData>(_formData);
+  const [formData, setFormData] = useState<typeof _formData>({..._formData, seller_state: 'Lagos' });
 
   const openNotification = (icon: React.JSX.Element, message: string) => {
     api.open({
@@ -100,7 +100,7 @@ export const SellerInformationForm = ({
         <Form
           form={form2}
           layout="vertical"
-          initialValues={{ ...formData }}
+          initialValues={formData}
           onFinish={onFinish}
         >
           {/* ----------------------------------------------------------- */}
