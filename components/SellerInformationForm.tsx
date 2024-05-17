@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, notification, message as antMessage, Select } from "antd";
 import { FormInstance, useForm } from "antd/es/form/Form";
 import { CustomButton } from "./CustomButton";
@@ -20,14 +20,14 @@ interface props {
 }
 
 export const SellerInformationForm = ({
-  formData,
-  setFormData,
-  setActiveIndex,
+  formData: _formData,
   form2,
   form1,
+  setActiveIndex,
 }: props) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [api, contextHolder] = notification.useNotification();
+  const [formData, setFormData] = useState<typeof _formData>(_formData);
 
   const openNotification = (icon: React.JSX.Element, message: string) => {
     api.open({
@@ -40,14 +40,18 @@ export const SellerInformationForm = ({
   const onFinish = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("https://klick-complaints-api.onrender.com/preloved", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+      console.log({ formData });
+      const res = await fetch(
+        "https://klick-complaints-api.onrender.com/preloved",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      })
+      )
         .then((res) => {
           console.log({ res });
           setIsLoading(false);
@@ -85,6 +89,10 @@ export const SellerInformationForm = ({
       );
     }
   };
+
+  useEffect(() => {
+    setFormData({ ...formData, seller_state: "Lagos" });
+  }, []);
   return (
     <>
       {contextHolder}
@@ -92,7 +100,7 @@ export const SellerInformationForm = ({
         <Form
           form={form2}
           layout="vertical"
-          initialValues={formData}
+          initialValues={{ ...formData }}
           onFinish={onFinish}
         >
           {/* ----------------------------------------------------------- */}
@@ -210,6 +218,7 @@ export const SellerInformationForm = ({
 
             <Form.Item
               label="State"
+              initialValue="Lagos"
               name="seller_state"
               rules={[
                 {

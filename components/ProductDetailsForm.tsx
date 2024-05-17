@@ -146,8 +146,7 @@ export const ProductDetailsForm = ({
           />
         </Form.Item>
         <Form.Item
-          label="Original Price (Current Market Price) - NGN"
-          name="original_price"
+          label="Original Price (Current Market Price NGN)"
           rules={[
             {
               required: true,
@@ -260,7 +259,7 @@ export const ProductDetailsForm = ({
             The better the photo, the faster the sale! Click your items in a
             neutral, uncluttered, well-lit background. Aim for photos with items
             in sharp focus. Avoid blurry shots. Note: All file sizes should be
-            atmost 4MB
+            at most 4MB
           </p>
         </div>
 
@@ -380,7 +379,7 @@ export const ProductDetailsForm = ({
             <p className="mt-4">
               <i>
                 Note: Upload a Video in .MP4 or .MOV format. All file sizes
-                should be atmost 4MB . Share a 360-angle video
+                should be at most 4MB . Share a 360-angle video
               </i>
             </p>
           </div>
