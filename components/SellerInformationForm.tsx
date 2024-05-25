@@ -112,7 +112,7 @@ export const SellerInformationForm = ({
 
       const res = await fetch(
         // "https://klick-pre-loved-vsu9.onrender.com/preloved",
-        "http://localhost:5000/preloved",
+        "https://klick-complaints-api.onrender.com/preloved",
         {
           method: "POST",
           // headers: {
