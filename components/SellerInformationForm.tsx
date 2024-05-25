@@ -18,6 +18,17 @@ interface props {
   form1: FormInstance<any>;
   form2: FormInstance<any>;
 }
+function convertDataURIToFile(dataUri: string, fileName: string) {
+  console.log({ dataUri });
+  const byteString = atob(dataUri.split(",")[1]);
+  const mimeString = dataUri.split(",")[0].split(":")[1].split(";")[0];
+  const ab = new ArrayBuffer(byteString.length);
+  const ia = new Uint8Array(ab);
+  for (let i = 0; i < byteString.length; i++) {
+    ia[i] = byteString.charCodeAt(i);
+  }
+  return new File([ab], fileName, { type: mimeString });
+}
 
 export const SellerInformationForm = ({
   formData: _formData,
@@ -25,6 +36,11 @@ export const SellerInformationForm = ({
   form1,
   setActiveIndex,
 }: props) => {
+  console.log({
+    form1,
+    form2,
+    _formData,
+  });
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [api, contextHolder] = notification.useNotification();
   const [formData, setFormData] = useState<typeof _formData>({
@@ -44,15 +60,68 @@ export const SellerInformationForm = ({
     setIsLoading(true);
     try {
       console.log({ formData });
+      // Convert all images to files before sendind as form data
+
+      // Convert base64 image data to File object
+
+      // Create a new FormData object
+      const formDataToSend = new FormData();
+
+      // Append other form data fields
+      for (const [key, value] of Object.entries(formData)) {
+        console.log({ value });
+        const image_keys = [
+          "front_side_image",
+          "left_side_image",
+          "right_side_image",
+          "back_side_image",
+          "product_video",
+        ];
+        if (image_keys.includes(key)) {
+          const image_key = image_keys[image_keys.indexOf(key)];
+          const imageData = value as string;
+          // If the field is 'images', convert each image data URI to a File object
+          const matches = imageData.match(/^data:(.+);base64/);
+          if (!matches) {
+            throw new Error("Invalid data URI");
+          }
+          const extensions = {
+            "image/jpeg": "jpg",
+            "image/png": "png",
+            "video/mp4": "mp4", // Add more mime types as needed
+          };
+          // Convert base64-encoded data to binary buffer
+          const fileExtension =
+            image_key === "product_video"
+              ? "video/mp4"
+              : imageData.split("data:image/")[1].split(";base64")[0];
+
+          const file = convertDataURIToFile(
+            imageData,
+            `${image_key}.${extensions[fileExtension as keyof typeof extensions]}`,
+          );
+          console.log({ file });
+          formDataToSend.append(image_key, file);
+        } else {
+          // Append other form fields
+          formDataToSend.append(key, value);
+        }
+      }
+
+      // log all the values in the form data
+
+      for (let [key, value] of formDataToSend.entries()) {
+        console.log(`${key}: ${value}`);
+      }
       const res = await fetch(
-        "https://klick-pre-loved-vsu9.onrender.com/preloved",
+        // "https://klick-pre-loved-vsu9.onrender.com/preloved",
+        "http://localhost:5000/preloved",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(formData),
+          // headers: {
+          //   "Content-Type": "multipart/form-data",
+          // },
+          body: formDataToSend,
         },
       )
         .then((res) => {

@@ -278,9 +278,11 @@ export const ProductDetailsForm = ({
             <FileInput
               accept=".jpg, .png, .jpeg"
               id="front"
-              setValue={(value) =>
-                setFormData({ ...formData, front_side_image: value })
-              }
+              setValue={(value) => {
+                console.log({ value });
+
+                setFormData({ ...formData, front_side_image: value });
+              }}
               value={formData.front_side_image}
             />
           </div>
