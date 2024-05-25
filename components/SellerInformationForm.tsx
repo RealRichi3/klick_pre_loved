@@ -110,9 +110,6 @@ export const SellerInformationForm = ({
 
       // log all the values in the form data
 
-      for (let [key, value] of formDataToSend.entries()) {
-        console.log(`${key}: ${value}`);
-      }
       const res = await fetch(
         // "https://klick-pre-loved-vsu9.onrender.com/preloved",
         "http://localhost:5000/preloved",
