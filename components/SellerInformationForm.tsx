@@ -111,8 +111,8 @@ export const SellerInformationForm = ({
       // log all the values in the form data
 
       const res = await fetch(
-        // "https://klick-pre-loved-vsu9.onrender.com/preloved",
-        "https://klick-complaints-api.onrender.com/preloved",
+        "https://klick-pre-loved-vsu9.onrender.com/preloved",
+        // "https://klick-complaints-api.onrender.com/preloved",
         {
           method: "POST",
           // headers: {
