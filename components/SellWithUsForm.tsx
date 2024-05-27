@@ -1,15 +1,16 @@
-"use client"
-import React from "react"
-import { TabProps, Tabs } from "./Tabs"
-import { ProductDetailsForm } from "./ProductDetailsForm"
-import { SellerInformationForm } from "./SellerInformationForm"
-import { ProductI } from "@/app/api/product.type"
-import { useForm } from "antd/es/form/Form"
+"use client";
+import React from "react";
+import { TabProps, Tabs } from "./Tabs";
+import { ProductDetailsForm } from "./ProductDetailsForm";
+import { SellerInformationForm } from "./SellerInformationForm";
+import { ProductI } from "@/app/api/product.type";
+import { useForm } from "antd/es/form/Form";
 
 const initialValues: ProductI = {
   category: "",
   name: "",
   product_age_group: "",
+  product_details: "",
   original_price: "",
   selling_price: "",
   condition: "",
@@ -26,14 +27,14 @@ const initialValues: ProductI = {
   seller_address: "",
   seller_city: "",
   seller_state: "",
-  wear_tear: '',
-}
+  wear_tear: "",
+};
 
 export const SellWithUsForm = () => {
-  const [form1] = useForm()
-  const [form2] = useForm()
-  const [formData, setFormData] = React.useState<ProductI>(initialValues)
-  const [activeIndex, setActiveIndex] = React.useState<number>(0)
+  const [form1] = useForm();
+  const [form2] = useForm();
+  const [formData, setFormData] = React.useState<ProductI>(initialValues);
+  const [activeIndex, setActiveIndex] = React.useState<number>(0);
   const items: TabProps[] = [
     {
       title: "1/2. Product Details",
@@ -51,7 +52,7 @@ export const SellWithUsForm = () => {
         />
       ),
     },
-  ]
+  ];
 
   return (
     <div
@@ -67,5 +68,5 @@ export const SellWithUsForm = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
