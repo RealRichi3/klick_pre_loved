@@ -249,9 +249,30 @@ export const ProductDetailsForm = ({
             <Radio value="1-2 Years">1-2 Years</Radio>
             <Radio value="2-4 Years">2-4 Years</Radio>
             <Radio value="4+ Years">4+ Years</Radio>
+            <Radio value="N/A">N/A</Radio>
           </Radio.Group>
         </Form.Item>
-
+        <Form.Item
+          label="Please provide product details including the size and color"
+          name="product_details"
+          rules={[
+            {
+              required: true,
+              message:
+                "Please provide product details including the size and color!",
+            },
+          ]}
+        >
+          <Input
+            size="large"
+            type="text"
+            className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
+            onChange={(e) =>
+              setFormData({ ...formData, product_details: e.target.value })
+            }
+            value={formData.product_details}
+          />
+        </Form.Item>
         {/* ----------------------------------------------------------- */}
         <div className="mb-4">
           <h4 className="text-lg font-semibold">Product Photos & Video</h4>

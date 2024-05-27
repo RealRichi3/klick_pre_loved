@@ -108,6 +108,7 @@ export const SellerInformationForm = ({
         }
       }
 
+      formDataToSend.append("date", new Date().toDateString());
       // log all the values in the form data
 
       const res = await fetch(
