@@ -13,7 +13,13 @@ interface props {
   form1: FormInstance<any>;
   form2: FormInstance<any>;
 }
-
+const formatNumber = (value: string) => {
+  if (!value) return value;
+  // Remove all commas for processing
+  const onlyNums = value.replace(/,/g, "");
+  // Format number with commas as thousand separators
+  return onlyNums.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
 export const ProductDetailsForm = ({
   formData,
   setFormData,
@@ -158,12 +164,13 @@ export const ProductDetailsForm = ({
           <div>
             <Input
               onChange={(e) => {
-                // Only allow ',' and numbers
-                if (!/^[\d,]*$/.test(e.target.value)) {
-                  return;
-                }
-
-                setFormData({ ...formData, original_price: e.target.value });
+                let value = e.target.value;
+                // replace othere char except number                 and  commas
+                value = value.replace(/[^0-9,]/g, "");
+                setFormData({
+                  ...formData,
+                  original_price: formatNumber(value),
+                });
               }}
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
@@ -191,13 +198,14 @@ export const ProductDetailsForm = ({
         >
           <div>
             <Input
-              // type="number"
               onChange={(e) => {
-                // Only allow ',' and numbers
-                if (!/^[\d,]*$/.test(e.target.value)) {
-                  return;
-                }
-                setFormData({ ...formData, selling_price: e.target.value });
+                let value = e.target.value;
+                // replace othere char except number                 and  commas
+                value = value.replace(/[^0-9,]/g, "");
+                setFormData({
+                  ...formData,
+                  selling_price: formatNumber(value),
+                });
               }}
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
