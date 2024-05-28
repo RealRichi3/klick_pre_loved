@@ -110,8 +110,12 @@ export const SellerInformationForm = ({
 
       formDataToSend.append("date", new Date().toDateString());
       // log all the values in the form data
+      openNotification(
+        <BiNote className="text-[#34E065] text-2xl" />,
+        "Please be patient- this could take a minute or two - Thank you for trusting Klick",
+      );
 
-      fetch(
+      await fetch(
         "https://klick-pre-loved-vsu9.onrender.com/preloved",
         // "https://klick-complaints-api.onrender.com/preloved",
         {
@@ -148,10 +152,6 @@ export const SellerInformationForm = ({
           );
           return;
         });
-      openNotification(
-        <BiNote className="text-[#34E065] text-2xl" />,
-        "Please be patient- this could take a minute or two - Thank you for trusting Klick",
-      );
     } catch (error: any) {
       console.log({ errorRes: error });
       setIsLoading(false);
