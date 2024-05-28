@@ -7,7 +7,7 @@ import { ProductI } from "@/app/api/product.type";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "react-phone-number-input/style.css";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
-import { BiSmile } from "react-icons/bi";
+import { BiSmile, BiNote } from "react-icons/bi";
 import { FaFrown } from "react-icons/fa";
 import DataStore from "./store.json";
 
@@ -111,7 +111,7 @@ export const SellerInformationForm = ({
       formDataToSend.append("date", new Date().toDateString());
       // log all the values in the form data
 
-      const res = await fetch(
+      fetch(
         "https://klick-pre-loved-vsu9.onrender.com/preloved",
         // "https://klick-complaints-api.onrender.com/preloved",
         {
@@ -148,6 +148,10 @@ export const SellerInformationForm = ({
           );
           return;
         });
+      openNotification(
+        <BiNote className="text-[#34E065] text-2xl" />,
+        "Please be patient- this could take a minute or two - Thank you for trusting Klick",
+      );
     } catch (error: any) {
       console.log({ errorRes: error });
       setIsLoading(false);
