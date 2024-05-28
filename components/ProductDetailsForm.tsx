@@ -157,12 +157,16 @@ export const ProductDetailsForm = ({
         >
           <div>
             <Input
-              onChange={(e) =>
-                setFormData({ ...formData, original_price: e.target.value })
-              }
+              onChange={(e) => {
+                // Only allow ',' and numbers
+                if (!/^[\d,]*$/.test(e.target.value)) {
+                  return;
+                }
+
+                setFormData({ ...formData, original_price: e.target.value });
+              }}
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
-              type="number"
               value={formData.original_price}
             />
             <p className="mt-4">
@@ -187,10 +191,14 @@ export const ProductDetailsForm = ({
         >
           <div>
             <Input
-              type="number"
-              onChange={(e) =>
-                setFormData({ ...formData, selling_price: e.target.value })
-              }
+              // type="number"
+              onChange={(e) => {
+                // Only allow ',' and numbers
+                if (!/^[\d,]*$/.test(e.target.value)) {
+                  return;
+                }
+                setFormData({ ...formData, selling_price: e.target.value });
+              }}
               size="large"
               className="bg-[#FAFAFA] md:w-[60%] lg:w-[40%]"
               value={formData.selling_price}
