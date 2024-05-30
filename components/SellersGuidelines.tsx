@@ -106,6 +106,25 @@ const items: AccordionProps[] = [
       </div>
     ),
   },
+  {
+    title: "Get Verified",
+    content: (
+      <div>
+        <div className="mb-4">
+          <p className="mb-4">
+            Your product listing will be displayed on the platform{" "}
+            <a
+              href="https://klick.africa"
+              style={{ textDecoration: "underline", color: "#FF6B3C" }}
+            >
+              Klick Africa
+            </a>{" "}
+            after a quick review by our team.
+          </p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export const SellersGuidelines = () => {
