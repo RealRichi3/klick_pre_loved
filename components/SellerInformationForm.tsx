@@ -131,14 +131,10 @@ export const SellerInformationForm = ({
         "Please be patient- this could take a minute or two - Thank you for trusting Klick",
       );
 
-      await fetch(
-        // "https://klick-pre-loved-vsu9.onrender.com/preloved",
-        "http://localhost:5000/preloved",
-        {
-          method: "POST",
-          body: formDataToSend,
-        },
-      )
+      await fetch("https://klick-pre-loved-vsu9.onrender.com/preloved", {
+        method: "POST",
+        body: formDataToSend,
+      })
         .then((res) => {
           console.log({ res });
           setIsLoading(false);
