@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export const HowToSell = () => {
   return (
@@ -36,11 +36,18 @@ export const HowToSell = () => {
                 className="md:w-[3rem] w-[2rem]"
               />
               <h3 className="md:text-[18px] text-[18px] uppercase font-semibold">
-                GET VERIFIED
+                GET VERIFIED{" "}
               </h3>
               <p className="text-[#6A6B6C] text-center md:text-[16px]">
-                Your product listing will be displayed on the platform after a
-                quick online verification process conducted by our team.
+                Your product listing will be displayed on the platform{" "}
+                <a
+                  href="https://klick.africa"
+                  target="_blank"
+                  style={{ color: "#ff6b3c", textDecoration: "underline" }}
+                >
+                  Klick
+                </a>{" "}
+                after a quick online verification process conducted by our team.
               </p>
             </div>
             <div className="bg-white flex items-center  gap-3 flex-col py-6 md:px-5 px-4">
@@ -77,5 +84,5 @@ export const HowToSell = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
