@@ -53,7 +53,7 @@ export const SellerInformationForm = ({
       message: "Feedback Notification",
       description: message,
       icon,
-      duration: 5,
+      duration: 10,
     });
   };
   const onFinish = async () => {
@@ -88,7 +88,22 @@ export const SellerInformationForm = ({
           const extensions = {
             "image/jpeg": "jpg",
             "image/png": "png",
-            "video/mp4": "mp4", // Add more mime types as needed
+            "image/gif": "gif",
+            "image/webp": "webp",
+            "image/bmp": "bmp",
+            "image/tiff": "tiff",
+            "image/svg+xml": "svg",
+            "image/x-icon": "ico",
+
+            // Videos
+            "video/mp4": "mp4",
+            "video/webm": "webm",
+            "video/ogg": "ogv",
+            "video/quicktime": "mov",
+            "video/x-msvideo": "avi",
+            "video/x-matroska": "mkv",
+            "video/x-flv": "flv",
+            "video/3gpp": "3gp",
           };
           // Convert base64-encoded data to binary buffer
           const fileExtension =
@@ -96,6 +111,7 @@ export const SellerInformationForm = ({
               ? "video/mp4"
               : imageData.split("data:image/")[1].split(";base64")[0];
 
+          fileExtension === "video/mp4" && console.log({ imageData });
           const file = convertDataURIToFile(
             imageData,
             `${image_key}.${extensions[fileExtension as keyof typeof extensions]}`,
@@ -116,13 +132,10 @@ export const SellerInformationForm = ({
       );
 
       await fetch(
-        "https://klick-pre-loved-vsu9.onrender.com/preloved",
-        // "https://klick-complaints-api.onrender.com/preloved",
+        // "https://klick-pre-loved-vsu9.onrender.com/preloved",
+        "http://localhost:5000/preloved",
         {
           method: "POST",
-          // headers: {
-          //   "Content-Type": "multipart/form-data",
-          // },
           body: formDataToSend,
         },
       )
