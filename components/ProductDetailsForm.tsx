@@ -66,6 +66,7 @@ export const ProductDetailsForm = ({
               <Radio value="Maternity">Maternity</Radio>
               <Radio value="Bath and Diapering">Bath and Diapering</Radio>
               <Radio value="Outdoor Play">Outdoor Play</Radio>
+              <Radio value="Pram & Travel">Pram & Travel</Radio>
               <Radio value="Others">Others</Radio>
             </Radio.Group>
             <p className="mt-4">
