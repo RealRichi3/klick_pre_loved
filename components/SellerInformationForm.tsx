@@ -10,9 +10,14 @@ import PhoneInputWithCountrySelect from "react-phone-number-input";
 import { BiSmile, BiNote } from "react-icons/bi";
 import { FaFrown } from "react-icons/fa";
 import DataStore from "./store.json";
+import BankDataStore from "./bank.json";
 
 interface props {
-  formData: ProductI;
+  formData: ProductI & {
+    bank_name: string;
+    bank_account_number: string;
+    bank_account_name: string;
+  };
   setFormData: React.Dispatch<React.SetStateAction<ProductI>>;
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   form1: FormInstance<any>;
@@ -278,7 +283,6 @@ export const SellerInformationForm = ({
             </Form.Item>
           </div>
 
-          {/* ----------------------------------------------------------- */}
           <div className="grid md:grid-cols-2 md:gap-8 gap-1">
             <Form.Item
               label="Address"
@@ -298,33 +302,6 @@ export const SellerInformationForm = ({
                 }
               />
             </Form.Item>
-
-            <Form.Item
-              label="State"
-              initialValue="Lagos"
-              name="seller_state"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input the State!",
-                },
-              ]}
-            >
-              <Select
-                size="large"
-                className="bg-[#FAFAFA]"
-                onChange={(e) => setFormData({ ...formData, seller_state: e })}
-                options={DataStore.states.map((state) => ({
-                  value: state.name,
-                  label: state.name,
-                  key: state.id,
-                }))}
-              />
-            </Form.Item>
-          </div>
-
-          {/* ----------------------------------------------------------- */}
-          <div className="grid md:grid-cols-2 md:gap-8 gap-1">
             <Form.Item
               label="City"
               name="seller_city"
@@ -350,6 +327,100 @@ export const SellerInformationForm = ({
             </Form.Item>
           </div>
 
+          {/* ----------------------------------------------------------- */}
+
+          {/* ----------------------------------------------------------- */}
+          <div className="grid md:grid-cols-2 md:gap-8 gap-1">
+          </div>
+
+          <div className="flex flex-col md:grid-cols-2 md:gap-8 gap-1" style={{ maxWidth: '400px'}}>
+            <Form.Item
+              label="State"
+              initialValue="Lagos"
+              name="seller_state"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the State!",
+                },
+              ]}
+            >
+              <Select
+                size="large"
+                className="bg-[#FAFAFA]"
+                onChange={(e) => setFormData({ ...formData, seller_state: e })}
+                options={DataStore.states.map((state) => ({
+                  value: state.name,
+                  label: state.name,
+                  key: state.id,
+                }))}
+              />
+            </Form.Item>
+
+            <Form.Item
+              label="Bank Name"
+              name="bank_name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the Bank name!",
+                },
+              ]}
+            >
+              <Select
+                size="large"
+                className="bg-[#FAFAFA]"
+                onChange={(e) => setFormData({ ...formData, bank_name: e })}
+                options={BankDataStore.map((bank) => ({
+                  value: bank.name,
+                  label: bank.name,
+                  key: bank.id,
+                }))}
+              />
+            </Form.Item>
+            <Form.Item
+              label="Bank Account Number"
+              name="bank_account_number"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the Account Number!",
+                },
+              ]}
+            >
+              <Input
+                size="large"
+                className="bg-[#FAFAFA]"
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    bank_account_number: e.target.value,
+                  })
+                }
+              />
+            </Form.Item>
+            <Form.Item
+              label="Account Name"
+              name="bank_account_name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input the Account Name!",
+                },
+              ]}
+            >
+              <Input
+                size="large"
+                className="bg-[#FAFAFA]"
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    bank_account_name: e.target.value,
+                  })
+                }
+              />
+            </Form.Item>
+          </div>
           {/* ----------------------------------------------------------- */}
           <div className="md:flex-row flex flex-col justify-center gap-5">
             {!isLoading && (
