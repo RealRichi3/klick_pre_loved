@@ -362,7 +362,7 @@ export const SellerInformationForm = ({
               name="bank_name"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "Please input the Bank name!",
                 },
               ]}
@@ -383,7 +383,7 @@ export const SellerInformationForm = ({
               name="bank_account_number"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "Please input the Account Number!",
                 },
               ]}
@@ -404,7 +404,7 @@ export const SellerInformationForm = ({
               name="bank_account_name"
               rules={[
                 {
-                  required: true,
+                  required: false,
                   message: "Please input the Account Name!",
                 },
               ]}
