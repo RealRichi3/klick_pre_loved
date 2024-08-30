@@ -14,9 +14,9 @@ import BankDataStore from "./bank.json";
 
 interface props {
   formData: ProductI & {
-    bank_name: string;
-    bank_account_number: string;
-    bank_account_name: string;
+    bank_name?: string;
+    bank_account_number?: string;
+    bank_account_name?: string;
   };
   setFormData: React.Dispatch<React.SetStateAction<ProductI>>;
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
